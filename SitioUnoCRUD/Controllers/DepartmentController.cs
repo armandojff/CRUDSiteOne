@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SitioUnoCRUD.Models;
+using SitioUnoCRUD.Responses;
 
 namespace SitioUnoCRUD.Controllers
 {
@@ -42,7 +43,13 @@ namespace SitioUnoCRUD.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                var departamento = new Department()
+                {
+                    nombre = collection["nombre"],
+                    area = collection["area"]
+
+                };
+                db.registrarDepartamento(departamento);
 
                 return RedirectToAction("Index");
             }
@@ -92,6 +99,7 @@ namespace SitioUnoCRUD.Controllers
         [HttpPost]
         public ActionResult Edit(string id, FormCollection collection)
         {
+            var ressponse = new ApplicationResponse<Department>();
             try
             {
                 // TODO: Add update logic here
@@ -102,15 +110,17 @@ namespace SitioUnoCRUD.Controllers
 
                 };
 
-                db.actualizarDepartamento(departamento, id);
+                ressponse.Data = db.actualizarDepartamento(departamento, id);
 
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ressponse.Success = false;
+                ressponse.Message = ex.Message;
             }
+            return View();
         }
 
         // GET: Department/Delete/5

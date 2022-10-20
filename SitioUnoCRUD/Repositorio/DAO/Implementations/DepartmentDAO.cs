@@ -99,6 +99,17 @@ namespace SitioUnoCRUD.Repositorio.DAO.Implementations
 
         }
 
+        public Department registrarDepartamento(Department departamento)
+        {
+
+            departmentDB.InsertOne(departamento);
+
+            return departamento;
+
+
+
+        }
+
         public Department actualizarDepartamento(Department departamento, string id)
         {
 
@@ -112,7 +123,7 @@ namespace SitioUnoCRUD.Repositorio.DAO.Implementations
 
         }
 
-        public void añadirTrabajadorAlDepartamento(string departmentName, string workerName){
+        public void añadirTrabajadorAlDepartamento(string departmentName, string workerName) {
 
             /* esto está mal, pero mientras perfecciono los queries para la gestion de documentos embebido en mongo 
             y manejo mejor las interfaces para poder pasar los id ya que los nombres no son unicos y generan problemas */
@@ -120,9 +131,20 @@ namespace SitioUnoCRUD.Repositorio.DAO.Implementations
             Department departamento = departmentDB.Find(Builders<Department>.Filter.Eq(d => d.nombre, departmentName)).FirstOrDefault();
 
 
-            Worker trabajador =  workerDB.Find(Builders<Worker>.Filter.Eq(w => w.nombre, workerName)).FirstOrDefault();
+            Worker trabajador = workerDB.Find(Builders<Worker>.Filter.Eq(w => w.nombre, workerName)).FirstOrDefault();
 
-            departamento.trabajadores.Add(trabajador);
+            if (departamento.trabajadores == null)
+            {
+                departamento.trabajadores = new List<Worker>();
+
+                departamento.trabajadores.Add(trabajador);
+
+            } else
+            {
+                departamento.trabajadores.Add(trabajador);
+            }
+        
+            
 
             //testeando la rama de developer
 

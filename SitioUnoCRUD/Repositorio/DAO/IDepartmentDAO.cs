@@ -15,6 +15,8 @@ namespace SitioUnoCRUD.Repositorio.DAO
 
         Department actualizarDepartamento(Department departamento,string id);
 
+        Department registrarDepartamento(Department departamento);
+
         void añadirTrabajadorAlDepartamento(string idDepartamento, string idTrabajador);
 
         void eliminarDepartamento(string id);

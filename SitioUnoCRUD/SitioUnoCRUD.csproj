@@ -177,6 +177,7 @@
     <Compile Include="Repositorio\DAO\Implementations\WorkerDAO.cs" />
     <Compile Include="Repositorio\DAO\IWorkerDAO.cs" />
     <Compile Include="Repositorio\MongoDBRepositorio.cs" />
+    <Compile Include="Responses\ApplicationResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
