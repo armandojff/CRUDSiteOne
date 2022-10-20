@@ -1,0 +1,55 @@
+﻿@model SitioUnoCRUD.Models.Worker
+
+@{
+    ViewBag.Title = "DeleteWorkerFromApartment";
+}
+
+<h2>Elimina el trabajador del departamento</h2>
+
+<div>
+    <h4>Trabajador: </h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            Apellido:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellido)
+        </dd>
+
+        <dt>
+            Año de Nacimiento
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.año_de_nacimiento)
+        </dd>
+
+        <dt>
+            Cargo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cargo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Volver", "Index")
+        </div>
+    }
+</div>
