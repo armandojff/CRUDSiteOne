@@ -121,5 +121,11 @@ namespace SitioUnoCRUD.Controllers
                 return View();
             }
         }
+
+        public ActionResult DataTableWorker()
+        {
+            var workers = db.consultarTrabajadores();
+            return View(workers);
+        }
     }
 }

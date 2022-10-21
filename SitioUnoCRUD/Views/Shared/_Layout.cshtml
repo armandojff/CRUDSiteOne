@@ -1,12 +1,18 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+
+
+    <link rel="stylesheet" type="text/css" href="~/Content/DataTables/DataTables-1.12.1/css/jquery.dataTables.min.css"/>
+
+    
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -24,6 +30,8 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
                     <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Google Map Api", "GoogleMapsApi", "Home")</li>
+                    <li>@Html.ActionLink("Data Table", "DataTableWorker", "Worker")</li>
                     <li>@Html.ActionLink("Trabajadores", "Index", "Worker")</li>
                     <li>@Html.ActionLink("Departamentos", "Index", "Department")</li>
                 </ul>
@@ -40,6 +48,13 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+
+    <script type="text/javascript" charset="utf-8" src="~/Content/DataTables/DataTables-1.12.1/js/jquery.dataTables.min.js"></script>
+
+
     @RenderSection("scripts", required: false)
+
+
+
 </body>
 </html>
