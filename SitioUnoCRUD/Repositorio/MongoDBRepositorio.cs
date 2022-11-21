@@ -15,7 +15,7 @@ namespace SitioUnoCRUD.Repositorio
 
         public MongoDBRepositorio()
         {
-            client = new MongoClient("mongodb://localhost:27017");
+            client = new MongoClient("mongodb+srv://admin:admindatabasemmg@cluster0.pmav2qm.mongodb.net/?retryWrites=true&w=majority");
 
             db = client.GetDatabase("SitioUno");
 
